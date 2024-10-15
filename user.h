@@ -1,5 +1,7 @@
 struct stat;
 struct rtcdate;
+struct condvar;
+struct
 
 // system calls
 int fork(void);
@@ -37,3 +39,8 @@ void* memset(void*, int, uint);
 void* malloc(uint);
 void free(void*);
 int atoi(const char*);
+void lock(struct spinlock *);
+void unlock(struct spinlock *);
+int cv_wait(struct condvar *);
+int cv_signal(struct condvar *);
+void init_lock(struct spinlock *);
